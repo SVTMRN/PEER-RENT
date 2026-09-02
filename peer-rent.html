@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<!-- saved from url=(0084)file:///C:/Users/U027667/OneDrive%20-%20UCB/Documents/Copilot/Created/peer-rent.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#556B2F">
+  <meta name="description" content="Peer-Rent is your peer-to-peer renting marketplace for borrowing and renting useful items from trusted people.">
+  <title>Peer-Rent | Share more. Own less.</title>
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Peer-Rent | Share more. Own less.">
+  <meta property="og:description" content="Rent tools, tech, outdoor gear, and everyday essentials from trusted people. Or earn by renting out what you already own.">
+  <meta property="og:site_name" content="Peer-Rent">
+  <meta property="og:url" content="https://peerrent.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Peer-Rent | Share more. Own less.">
+  <meta name="twitter:description" content="Rent tools, tech, outdoor gear, and everyday essentials from trusted people. Or earn by renting out what you already own.">
+
+  <!-- Inline SVG favicon -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 32 32&#39;%3E%3Crect width=&#39;32&#39; height=&#39;32&#39; rx=&#39;8&#39; fill=&#39;%236B8E23&#39;/%3E%3Ctext x=&#39;16&#39; y=&#39;23&#39; font-size=&#39;20&#39; font-weight=&#39;700&#39; text-anchor=&#39;middle&#39; fill=&#39;white&#39; font-family=&#39;Arial,sans-serif&#39;%3EP%3C/text%3E%3C/svg%3E">
+
+  <style>
+    :root {
+      --ink: #3D4A2E;
+      --ink-soft: #556B2F;
+      --muted: #707B5E;
+      --line: rgba(61, 74, 46, 0.08);
+      --page: #FAFBF8;
+      --white: #ffffff;
+      --olive: #6B8E23;
+      --gold: #DAA520;
+      --shadow: 0 30px 90px rgba(61, 74, 46, 0.12);
+      --radius-xl: 36px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top, rgba(85, 107, 47, 0.12), transparent 22%),
+        radial-gradient(circle at 85% 10%, rgba(107, 142, 31, 0.10), transparent 28%),
+        var(--page);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    img { display: block; max-width: 100%; }
+
+    .skip {
+      position: fixed; left: 16px; top: -80px; z-index: 9999;
+      background: #3D4A2E; color: #fff; padding: 12px 16px; border-radius: 12px;
+    }
+    .skip:focus { top: 16px; }
+
+    /* Consistent, on-brand focus ring for keyboard users */
+    a:focus-visible, button:focus-visible, .field:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 2px;
+    }
+
+    .nav {
+      position: fixed; inset: 0 0 auto; z-index: 1000;
+      background: rgba(255, 255, 255, 0.72);
+      border-bottom: 1px solid rgba(17, 24, 39, 0.06);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+    }
+    .nav-inner {
+      max-width: 1180px; height: 72px; margin: auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    }
+    .brand {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 18px; font-weight: 700; letter-spacing: -0.03em;
+    }
+    .mark {
+      width: 30px; height: 30px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--olive) 0%, var(--gold) 100%);
+      color: #fff; display: grid; place-items: center; font-weight: 800;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+    .wordmark { display: inline-flex; align-items: baseline; }
+    .wordmark .wm-peer { color: var(--olive); }
+    .wordmark .wm-rent { color: var(--gold); }
+    .links {
+      display: flex; align-items: center; gap: 28px;
+      font-size: 13px; color: #3c4351;
+    }
+    .links a { transition: color 0.2s ease; }
+    .links a:hover { color: var(--gold); }
+
+    .nav-actions { display: flex; gap: 10px; }
+    .pill {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 46px; padding: 0 20px; border-radius: 999px;
+      font-weight: 600; font-size: 15px; transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+      border: 0; cursor: pointer;
+    }
+    .pill:hover { transform: translateY(-1px); }
+    .primary {
+      background: linear-gradient(135deg, #1a1a1a 0%, var(--olive) 100%);
+      color: #fff; box-shadow: 0 14px 28px rgba(26, 26, 26, 0.22);
+    }
+    .primary:hover { box-shadow: 0 18px 32px rgba(26, 26, 26, 0.28); }
+    .secondary {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(17, 24, 39, 0.06);
+      color: var(--ink-soft);
+    }
+
+    .menu-btn {
+      display: none; width: 42px; height: 42px; border: 0; background: transparent;
+      font-size: 24px; color: var(--ink);
+      border-radius: 12px;
+    }
+
+    main { padding-top: 72px; }
+    .wrap { max-width: 1180px; margin: auto; padding-left: 24px; padding-right: 24px; }
+
+    .hero {
+      position: relative; overflow: hidden;
+      min-height: calc(100vh - 72px);
+      display: grid; place-items: center;
+      padding: 88px 0 56px;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(85, 107, 47, 0.12), transparent 26%),
+        radial-gradient(circle at 75% 20%, rgba(107, 142, 31, 0.10), transparent 26%),
+        linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,251,248,0.96));
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 12% auto auto 50%; width: 820px; height: 820px;
+      background: radial-gradient(circle, rgba(107, 142, 31, 0.14), transparent 60%);
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: ""; position: absolute; width: 620px; height: 620px; right: -180px; top: 80px;
+      background: radial-gradient(circle, rgba(107, 142, 31, 0.12), transparent 62%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 70px;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px; font-size: 17px; font-weight: 700; letter-spacing: 0.04em;
+      color: var(--gold); text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 0; max-width: 700px;
+      font-size: clamp(58px, 7vw, 96px);
+      line-height: 0.94; letter-spacing: -0.075em;
+    }
+    .gradient {
+      background: linear-gradient(99deg, #1a1a1a 12%, var(--olive) 49%, var(--gold) 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+
+    .hero-copy {
+      margin: 22px 0 30px; max-width: 640px;
+      color: var(--muted); font-size: clamp(20px, 2vw, 27px); line-height: 1.34; letter-spacing: -0.03em;
+    }
+
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .trust {
+      display: flex; align-items: center; gap: 14px; margin-top: 32px;
+      color: var(--muted); font-size: 14px;
+    }
+    .avatars { display: flex; }
+    .avatar {
+      width: 38px; height: 38px; margin-left: -8px; border: 3px solid #fff;
+      border-radius: 50%; display: grid; place-items: center; color: #fff; font-size: 11px; font-weight: 700;
+      background: linear-gradient(135deg, var(--olive) 0%, var(--gold) 100%);
+    }
+    .avatar:first-child { margin-left: 0; }
+    .stars { color: var(--gold); letter-spacing: 1px; }
+
+    .product-card {
+      position: relative; z-index: 1;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(255,255,255,0.9);
+      border-radius: 40px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      transform: rotate(1.4deg);
+    }
+    .product-card::before {
+      content: ""; position: absolute; inset: -12px auto auto -12px;
+      width: 120px; height: 120px; border-radius: 50%; background: rgba(85, 107, 47, 0.12);
+      filter: blur(22px);
+    }
+    .product-image {
+      position: relative; height: 350px; border-radius: 28px;
+      background: linear-gradient(135deg, #FAFBF8 0%, #E8F0D5 38%, #DCEAB0 100%);
+      display: grid; place-items: center; overflow: hidden;
+      border: 1px solid rgba(61, 74, 46, 0.08);
+    }
+    .product-image::before {
+      content: ""; position: absolute; width: 220px; height: 220px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0) 62%);
+      top: 14%; left: 18%;
+    }
+    .drill {
+      position: relative; z-index: 1;
+      filter: drop-shadow(0 28px 30px rgba(0,0,0,0.18));
+      transform: rotate(-8deg);
+    }
+    .distance {
+      position: absolute; left: 18px; top: 18px; z-index: 2;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.78); border: 1px solid rgba(61,74,46,0.08);
+      padding: 9px 13px; border-radius: 999px; font-size: 12px; font-weight: 600;
+      box-shadow: 0 10px 20px rgba(61, 74, 46, 0.10);
+    }
+    .distance::before {
+      content: ""; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 0 4px rgba(34,197,94,0.12);
+    }
+    .mini-pills {
+      position: absolute; right: 16px; bottom: 16px; z-index: 2;
+      display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end;
+    }
+    .mini-pills span {
+      background: rgba(255,255,255,0.82); border: 1px solid rgba(61,74,46,0.08);
+      border-radius: 999px; padding: 7px 10px; font-size: 11px; font-weight: 700;
+      color: var(--ink-soft);
+    }
+
+    .card-info { padding: 20px 4px 4px; }
+    .card-title-row {
+      display: flex; justify-content: space-between; gap: 18px; align-items: flex-start;
+    }
+    .card-info h3 {
+      margin: 0 0 7px; font-size: 23px; letter-spacing: -0.04em;
+    }
+    .card-info p {
+      margin: 0; color: var(--muted); line-height: 1.45;
+    }
+    .price {
+      white-space: nowrap; font-weight: 700; font-size: 20px; letter-spacing: -0.04em;
+    }
+    .price small { font-size: 13px; color: var(--muted); }
+
+    .meta {
+      display: flex; gap: 10px; justify-content: space-between; align-items: center;
+      margin-top: 18px; padding-top: 15px; border-top: 1px solid var(--line);
+      font-size: 13px; font-weight: 600; color: var(--ink-soft);
+    }
+    .verified { color: #1f9d55; }
+
+    .stats { padding: 24px 0 90px; }
+    .stat-panel {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      background: rgba(255,255,255,0.8); border: 1px solid rgba(61,74,46,0.08);
+      border-radius: var(--radius-xl); padding: 28px 34px; box-shadow: 0 18px 40px rgba(61,74,46,0.06);
+    }
+    .stat {
+      text-align: center; padding: 10px 20px; border-right: 1px solid rgba(61,74,46,0.12);
+    }
+    .stat:last-child { border-right: 0; }
+    .stat strong {
+      display: block; font-size: 40px; line-height: 1; letter-spacing: -0.06em;
+      margin-bottom: 8px;
+    }
+    .stat span { color: var(--muted); }
+
+    section { padding: 100px 0; }
+    .section-top {
+      max-width: 860px; margin: 0 auto 56px; text-align: center;
+    }
+    .kicker {
+      margin: 0 0 12px; color: var(--gold); font-size: 16px; font-weight: 700;
+    }
+    .section-top h2 {
+      margin: 0; font-size: clamp(42px, 5vw, 70px); line-height: 1.02; letter-spacing: -0.06em;
+    }
+    .section-top p {
+      max-width: 720px; margin: 20px auto 0; color: var(--muted); font-size: 21px; line-height: 1.45;
+    }
+
+    .feature-grid {
+      display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 20px;
+    }
+    .feature {
+      position: relative; overflow: hidden;
+      min-height: 430px; padding: 46px; border-radius: var(--radius-xl);
+      background: rgba(255,255,255,0.8); border: 1px solid rgba(61,74,46,0.08);
+      box-shadow: 0 18px 40px rgba(61,74,46,0.06);
+    }
+    .feature.dark {
+      background: linear-gradient(145deg, #1a1a1a 0%, var(--olive) 100%); color: #fff;
+    }
+    .feature.wide {
+      grid-column: 1 / -1;
+      min-height: 390px; display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+    }
+    .feature h3 {
+      margin: 14px 0; font-size: 34px; line-height: 1.05; letter-spacing: -0.05em;
+    }
+    .feature p {
+      max-width: 500px; margin: 0 0 18px;
+      color: var(--muted); font-size: 18px; line-height: 1.55;
+    }
+    .dark p { color: rgba(255,255,255,0.82); }
+    .learn { color: var(--gold); font-weight: 700; }
+    .feature.dark .learn { color: #EBC55B; }
+    .feature-orb {
+      position: absolute; right: -50px; bottom: -60px; width: 300px; height: 300px;
+      border-radius: 50%; background: radial-gradient(circle at 30% 30%, #E8F0D5 0%, #556B2F 48%, #3D4A2E 66%);
+      box-shadow: -30px -20px 75px rgba(85, 107, 47, 0.2);
+    }
+    .shield { font-size: 145px; text-align: center; filter: drop-shadow(0 30px 25px rgba(0,0,0,0.3)); }
+    .coins { font-size: 140px; text-align: center; filter: drop-shadow(0 25px 20px rgba(0,0,0,0.15)); }
+
+    .steps-section {
+      background: linear-gradient(180deg, #1a1a1a 0%, var(--olive) 100%); color: #f3f4f6;
+    }
+    .steps-section .section-top p { color: rgba(255,255,255,0.8); }
+    .steps {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+    }
+    .step {
+      min-height: 280px; padding: 28px 24px; border-radius: 26px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    }
+    .step-no {
+      font-size: 36px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: #EBC55B;
+    }
+    .step h3 {
+      margin: 42px 0 12px; font-size: 24px; line-height: 1.15; letter-spacing: -0.04em;
+    }
+    .step p {
+      margin: 0; color: rgba(255,255,255,0.7); line-height: 1.6;
+    }
+
+    .categories {
+      display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 14px;
+    }
+    .category {
+      background: rgba(255,255,255,0.8); border: 1px solid rgba(61,74,46,0.08);
+      padding: 26px 18px; border-radius: 24px; text-align: center; transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+    .category:hover {
+      transform: translateY(-5px); box-shadow: 0 22px 40px rgba(61, 74, 46, 0.12);
+    }
+    .category-icon { margin-bottom: 16px; display: grid; place-items: center; }
+    .category strong { font-size: 17px; }
+
+    .contact-card {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 68px;
+      padding: 64px;
+      border-radius: 42px; color: #fff;
+      background: linear-gradient(135deg, #556B2F 0%, var(--gold) 100%);
+      box-shadow: var(--shadow);
+    }
+    .contact-card h2 {
+      margin: 0 0 16px; font-size: clamp(42px, 5vw, 66px); line-height: 0.96; letter-spacing: -0.07em;
+    }
+    .contact-card p {
+      margin: 0; color: rgba(255,255,255,0.92); font-size: 19px; line-height: 1.5;
+    }
+    .contact-details {
+      display: grid; gap: 8px; margin-top: 32px;
+      font-size: 15px; color: rgba(255,255,255,0.92);
+    }
+    .form {
+      display: grid; gap: 12px;
+    }
+    .field {
+      width: 100%; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.10);
+      color: #fff; border-radius: 16px; padding: 15px 16px; outline: none;
+    }
+    .field::placeholder { color: rgba(255,255,255,0.7); }
+    .field option { color: #1a1a1a; }
+    .field:focus {
+      border-color: #F3D98A;
+      box-shadow: 0 0 0 4px rgba(243, 217, 138, 0.28);
+    }
+    textarea.field { min-height: 120px; resize: vertical; }
+    .form-note {
+      margin: 4px 0 0 !important; font-size: 12px !important; color: rgba(255,255,255,0.8) !important;
+    }
+
+    footer { padding: 28px 0 42px; }
+    .footer-row {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      color: var(--muted); font-size: 13px;
+    }
+
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .reveal.in {
+      opacity: 1; transform: none;
+    }
+
+    @media (max-width: 900px) {
+      .links, .nav-actions .secondary { display: none; }
+      .menu-btn { display: block; }
+      .nav.open .links {
+        position: absolute; top: 72px; left: 0; right: 0;
+        display: flex; flex-direction: column; align-items: flex-start; gap: 20px;
+        padding: 24px; background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--line);
+        box-shadow: 0 16px 28px rgba(61,74,46,0.12);
+      }
+      .hero-grid, .contact-card { grid-template-columns: 1fr; }
+      .hero { text-align: center; }
+      .hero-copy { margin-left: auto; margin-right: auto; }
+      .cta-row, .trust { justify-content: center; }
+      .product-card { max-width: 560px; margin: auto; transform: none; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .feature.wide { grid-column: auto; grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .categories { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 560px) {
+      .wrap { padding-left: 18px; padding-right: 18px; }
+      .hero { padding-top: 70px; }
+      .hero h1 { font-size: 54px; }
+      .product-image { height: 270px; }
+      .stat-panel { grid-template-columns: 1fr; }
+      .stat { border-right: 0; border-bottom: 1px solid rgba(61,74,46,0.12); }
+      .stat:last-child { border-bottom: 0; }
+      .feature { padding: 30px; }
+      .steps { grid-template-columns: 1fr; }
+      .categories { grid-template-columns: 1fr 1fr; }
+      .contact-card { padding: 34px 24px; }
+      .footer-row { flex-direction: column; align-items: flex-start; }
+      .nav-actions .primary { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .pill, .category { transition: none; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip" href="file:///C:/Users/U027667/OneDrive%20-%20UCB/Documents/Copilot/Created/peer-rent.html#main">Skip to content</a>
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="file:///C:/Users/U027667/OneDrive%20-%20UCB/Documents/Copilot/Created/peer-rent.html#top" aria-label="Peer-Rent home"><span class="mark" aria-hidden="true">P</span><span class="wordmark"><span class="wm-peer">Peer</span><span class="wm-rent">-Rent</span></span></a>
+    <nav class="links" aria-label="Main navigation">
+      <a href="file:///C:/Users/U027667/OneDrive%20-%20UCB/Documents/Copilot/Created/peer-rent.html#why">Why Peer-Rent</a><a href="file:///C:/Users/U027667/OneDrive%20-%20UCB/Documents/Copilot/Created/peer-rent.html#how">How it works</a><a href="file:///C:/Users/U027667/OneDrive%20-%20UCB/Documents/Copilot/Created/peer-rent.html#categories">Categories</a><a href="file:///C:/Users/U027667/OneDrive%20-%20UCB/Documents/Copilot/Created/peer-rent.html#contact">Contact</a>
+    </nav>
+    <div class="nav-actions"><a class="pill secondary" href="file:///C:/Users/U027667/OneDrive%20-%20UCB/Documents/Copilot/Created/peer-rent.html#categories">Explore</a><a class="pill primary" href="file:///C:/Users/U027667/OneDrive%20-%20UCB/Documents/Copilot/Created/peer-rent.html#contact">List an item ↗</a><button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button></div>
+  </div>
+</header>
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div class="reveal in">
+        <p class="eyebrow">Your peer-to-peer renting marketplace</p>
+        <h1>Own less.<br><span class="gradient">Access more.</span></h1>
+        <p class="hero-copy">Rent tools, tech, outdoor gear, and everyday essentials from trusted people. Or earn by renting out the items you already own.</p>
+        <div class="cta-row"><a class="pill primary" href="file:///C:/Users/U027667/OneDrive%20-%20UCB/Documents/Copilot/Created/peer-rent.html#categories">Find what you need →</a><a class="pill secondary" href="file:///C:/Users/U027667/OneDrive%20-%20UCB/Documents/Copilot/Created/peer-rent.html#contact">Start earning</a></div>
+        <div class="trust"><div class="avatars" aria-hidden="true"><span class="avatar">AM</span><span class="avatar">JT</span><span class="avatar">LK</span></div><div><span class="stars" aria-hidden="true">★★★★★</span><br>Trusted by neighbors in growing communities</div></div>
+      </div>
+      <article class="product-card reveal in" aria-label="Featured listing">
+        <div class="product-image">
+          <span class="distance">1.2 km away</span>
+          <span class="drill" aria-hidden="true"><svg width="120" height="120" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="15" y="25" width="50" height="30" rx="4" stroke="#556B2F" stroke-width="3"></rect><circle cx="35" cy="40" r="5" fill="#556B2F"></circle><rect x="50" y="35" width="15" height="10" rx="2" stroke="#556B2F" stroke-width="2.5"></rect></svg></span>
+          <div class="mini-pills"><span>100% battery</span><span>Pickup today</span></div>
+        </div>
+        <div class="card-info">
+          <div class="card-title-row">
+            <div>
+              <h3>Cordless power drill</h3>
+              <p>Reliable, fully charged, with drill-bit set.</p>
+            </div>
+            <div class="price">€9 <small>/ day</small></div>
+          </div>
+          <div class="meta"><span class="verified">✓ Verified owner</span><span>★ 4.9 rating</span><span>Available today</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <div class="stats wrap reveal"><div class="stat-panel"><div class="stat"><strong>10K+</strong><span>items available</span></div><div class="stat"><strong>5K+</strong><span>active members</span></div><div class="stat"><strong>98%</strong><span>positive experiences</span></div></div></div>
+
+  <section id="why"><div class="wrap"><div class="section-top reveal"><div class="kicker">Built for sharing</div><h2>Connect. Share. Reuse.</h2><p>Everything you need to borrow and lend confidently, with clear profiles, simple booking, and community reviews.</p></div>
+    <div class="feature-grid">
+      <article class="feature reveal"><div class="kicker">Discover</div><h3>Get what you need, now.</h3><p>Discover quality rental items instead of buying something you may only need once.</p><a class="learn" href="file:///C:/Users/U027667/OneDrive%20-%20UCB/Documents/Copilot/Created/peer-rent.html#categories">Browse categories →</a><div class="feature-orb" aria-hidden="true"></div></article>
+      <article class="feature dark reveal"><div class="kicker">Peace of mind</div><h3>Trusted by design.</h3><p>Verified profiles, transparent reviews, secure rental payments, and clear booking details.</p><a class="learn" href="file:///C:/Users/U027667/OneDrive%20-%20UCB/Documents/Copilot/Created/peer-rent.html#how">See how it works →</a><div class="shield" aria-hidden="true"><svg width="160" height="160" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M60 15L85 30V55C85 75 60 100 60 100C60 100 35 75 35 55V30L60 15Z" stroke="#E8F0D5" stroke-width="3" stroke-linejoin="round"></path><path d="M50 60L57 67L75 45" stroke="#E8F0D5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></article>
+      <article class="feature wide reveal"><div><div class="kicker">Earn locally</div><h3>Start renting your items.</h3><p>List your items, set your rental price and availability, then earn when renters book your listing.</p><a class="learn" href="file:///C:/Users/U027667/OneDrive%20-%20UCB/Documents/Copilot/Created/peer-rent.html#contact">List an item →</a></div><div class="coins" aria-hidden="true"><svg width="160" height="160" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="45" r="20" stroke="#556B2F" stroke-width="2.5"></circle><text x="40" y="52" text-anchor="middle" font-size="24" font-weight="bold" fill="#556B2F">$</text><circle cx="70" cy="60" r="22" stroke="#556B2F" stroke-width="2.5" opacity="0.7"></circle><text x="70" y="68" text-anchor="middle" font-size="26" font-weight="bold" fill="#556B2F" opacity="0.7">$</text><circle cx="55" cy="75" r="18" stroke="#556B2F" stroke-width="2.5" opacity="0.5"></circle><text x="55" y="81" text-anchor="middle" font-size="20" font-weight="bold" fill="#556B2F" opacity="0.5">$</text></svg></div></article>
+    </div>
+  </div></section>
+
+  <section class="steps-section" id="how"><div class="wrap"><div class="section-top reveal"><div class="kicker">How it works</div><h2>From search to pickup in four easy steps.</h2><p>A transparent experience for both borrowers and owners, with fewer messages and no confusing process.</p></div>
+    <div class="steps"><article class="step reveal"><div class="step-no">01</div><h3>Create your profile</h3><p>Join the community, add basic details, and complete verification to build trust.</p></article><article class="step reveal"><div class="step-no">02</div><h3>Browse or list</h3><p>Search by location and availability, or create a listing with photos, price, and pickup details.</p></article><article class="step reveal"><div class="step-no">03</div><h3>Book securely</h3><p>Choose your dates, send a request, and keep payment and communication in one place.</p></article><article class="step reveal"><div class="step-no">04</div><h3>Pick up and review</h3><p>Meet locally, enjoy the item, return it on time, and help the community with an honest review.</p></article></div>
+  </div></section>
+
+  <section id="categories"><div class="wrap"><div class="section-top reveal"><div class="kicker">Something for every plan</div><h2>Why buy it when a neighbor has it?</h2><p>From weekend projects to spontaneous adventures, access quality items without the cost and clutter of ownership.</p></div>
+    <div class="categories reveal"><a class="category" href="file:///C:/Users/U027667/OneDrive%20-%20UCB/Documents/Copilot/Created/peer-rent.html#contact" aria-label="Browse Tools category"><div class="category-icon"><svg width="75" height="75" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="18" width="12" height="24" rx="1" stroke="#556B2F" stroke-width="2.5"></rect><path d="M20 22L28 14M28 14L36 22M28 14V30M20 30L28 38M28 38L36 30" stroke="#556B2F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><strong>Tools</strong></a><a class="category" href="file:///C:/Users/U027667/OneDrive%20-%20UCB/Documents/Copilot/Created/peer-rent.html#contact" aria-label="Browse Outdoors category"><div class="category-icon"><svg width="75" height="75" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25 8L32 15V35C32 40 25 42 25 42C25 42 18 40 18 35V15L25 8Z" stroke="#556B2F" stroke-width="2.5" stroke-linejoin="round"></path><line x1="25" y1="20" x2="25" y2="35" stroke="#556B2F" stroke-width="2.5"></line></svg></div><strong>Outdoors</strong></a><a class="category" href="file:///C:/Users/U027667/OneDrive%20-%20UCB/Documents/Copilot/Created/peer-rent.html#contact" aria-label="Browse Tech category"><div class="category-icon"><svg width="75" height="75" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="30" height="24" rx="2" stroke="#556B2F" stroke-width="2.5"></rect><line x1="10" y1="20" x2="40" y2="20" stroke="#556B2F" stroke-width="2.5"></line><circle cx="22" cy="27" r="3" fill="#556B2F"></circle><rect x="28" y="24" width="8" height="6" rx="1" stroke="#556B2F" stroke-width="2"></rect></svg></div><strong>Tech</strong></a><a class="category" href="file:///C:/Users/U027667/OneDrive%20-%20UCB/Documents/Copilot/Created/peer-rent.html#contact" aria-label="Browse Events category"><div class="category-icon"><svg width="75" height="75" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25 8L30 18L41 20L33 27L35 38L25 33L15 38L17 27L9 20L20 18L25 8Z" stroke="#556B2F" stroke-width="2.5" stroke-linejoin="round"></path></svg></div><strong>Events</strong></a><a class="category" href="file:///C:/Users/U027667/OneDrive%20-%20UCB/Documents/Copilot/Created/peer-rent.html#contact" aria-label="Browse Sport category"><div class="category-icon"><svg width="75" height="75" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="25" cy="20" r="8" stroke="#556B2F" stroke-width="2.5"></circle><path d="M15 28C15 28 12 35 12 40H38C38 35 35 28 25 28C15 28 15 28 15 28Z" stroke="#556B2F" stroke-width="2.5" stroke-linejoin="round"></path><line x1="20" y1="40" x2="20" y2="42" stroke="#556B2F" stroke-width="2.5"></line><line x1="25" y1="40" x2="25" y2="42" stroke="#556B2F" stroke-width="2.5"></line><line x1="30" y1="40" x2="30" y2="42" stroke="#556B2F" stroke-width="2.5"></line></svg></div><strong>Sport</strong></a></div>
+  </div></section>
+
+  <section id="contact"><div class="wrap"><div class="contact-card reveal"><div><div class="kicker">Ready to get started?</div><h2>Make your community more useful.</h2><p>Join Peer-Rent to get what you need or start earning from the items you already own.</p><div class="contact-details"><strong>hello@peerrent.com</strong><span>Available in growing communities worldwide</span></div></div>
+    <form class="form" onsubmit="event.preventDefault();this.querySelector(&#39;button&#39;).textContent=&#39;Message ready ✓&#39;;"><input class="field" aria-label="Name" placeholder="Name" required=""><input class="field" type="email" aria-label="Email" placeholder="Email" required=""><select class="field" aria-label="I want to"><option>I want to borrow an item</option><option>I want to list an item</option><option>I have a general question</option></select><textarea class="field" aria-label="Message" placeholder="Message" required=""></textarea><button class="pill primary" type="submit">Send message →</button><p class="form-note">Demo form only. Connect this form to your preferred email or form service before launch.</p></form>
+  </div></div></section>
+</main>
+<footer><div class="wrap footer-row"><a class="brand" href="file:///C:/Users/U027667/OneDrive%20-%20UCB/Documents/Copilot/Created/peer-rent.html#top" aria-label="Peer-Rent home"><span class="mark" aria-hidden="true">P</span><span class="wordmark"><span class="wm-peer">Peer</span><span class="wm-rent">-Rent</span></span></a><span>© 2026 Peer-Rent. Own less. Access more.</span></div></footer>
+<script>
+  const nav=document.getElementById('nav');
+  const menu=document.querySelector('.menu-btn');
+  menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open);menu.textContent=open?'×':'☰'});
+  document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰'}));
+  const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');observer.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+
+
+</body></html>
