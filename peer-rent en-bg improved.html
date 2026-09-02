@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#556B2F">
+  <meta name="description" content="Peer-Rent — наеми директно от хора, за хора.">
+  <title>Peer-Rent | Споделяй повече. Притежавай по-малко.</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Peer-Rent | Споделяй повече. Притежавай по-малко.">
+  <meta property="og:description" content="Наемай инструменти, техника, оборудване за навън и ежедневни артикули от хора, на които можеш да се довериш.">
+  <meta property="og:site_name" content="Peer-Rent">
+  <meta property="og:url" content="https://peerrent.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23556B2F'/%3E%3Ctext x='16' y='23' font-size='20' font-weight='700' text-anchor='middle' fill='white' font-family='Arial,sans-serif'%3EP%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink: #26301C; --ink-soft: #3a4a26; --muted: #6f7360; --line: rgba(38, 48, 28, 0.10);
+      --page: #FAFBF8; --white: #ffffff; --olive: #6B8E23; --olive-deep: #556B2F; --gold: #DAA520;
+      --shadow: 0 30px 90px rgba(38, 48, 28, 0.14); --radius-xl: 36px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top, rgba(85, 107, 47, 0.12), transparent 22%),
+        radial-gradient(circle at 85% 10%, rgba(107, 142, 31, 0.10), transparent 28%),
+        var(--page);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: hidden;
+      text-transform: uppercase;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; text-transform: uppercase; }
+    img { display: block; max-width: 100%; }
+    .skip { position: fixed; left: 16px; top: -80px; z-index: 9999; background: var(--olive-deep); color: #fff; padding: 12px 16px; border-radius: 12px; }
+    .skip:focus { top: 16px; }
+    a:focus-visible, button:focus-visible, .field:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+    .nav { position: fixed; inset: 0 0 auto; z-index: 1000; background: rgba(255, 255, 255, 0.72); border-bottom: 1px solid rgba(38, 48, 28, 0.08); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); }
+    .nav-inner { max-width: 1180px; height: 72px; margin: auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 700; letter-spacing: -0.02em; }
+    .mark { width: 30px; height: 30px; border-radius: 10px; background: linear-gradient(135deg, var(--olive-deep) 0%, var(--olive) 55%, var(--gold) 100%); color: #fff; display: grid; place-items: center; font-weight: 800; box-shadow: inset 0 1px 0 rgba(255,255,255,0.2); }
+    .wordmark { display: inline-flex; align-items: baseline; }
+    .wordmark .wm-peer { color: var(--ink); }
+    .wordmark .wm-rent { color: var(--gold); }
+    .links { display: flex; align-items: center; gap: 28px; font-size: 13px; color: var(--ink-soft); letter-spacing: 0.02em; }
+    .links a { transition: color 0.2s ease; }
+    .links a:hover { color: var(--gold); }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .pill { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; padding: 0 20px; border-radius: 999px; font-weight: 600; font-size: 15px; letter-spacing: 0.01em; transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease; border: 0; cursor: pointer; }
+    .pill:hover { transform: translateY(-1px); }
+    .primary { background: linear-gradient(135deg, var(--olive-deep) 0%, var(--olive) 60%, var(--gold) 130%); color: #fff; box-shadow: 0 14px 28px rgba(85, 107, 47, 0.30); }
+    .primary:hover { box-shadow: 0 18px 32px rgba(85, 107, 47, 0.38); }
+    .secondary { background: rgba(255,255,255,0.8); border: 1px solid rgba(38, 48, 28, 0.12); color: var(--ink); }
+    .lang-switch { display: inline-flex; align-items: center; border: 1px solid rgba(38,48,28,0.14); border-radius: 999px; overflow: hidden; background: rgba(255,255,255,0.8); }
+    .lang-switch button { border: 0; background: transparent; cursor: pointer; padding: 8px 14px; font-size: 13px; font-weight: 700; color: var(--muted); transition: background 0.2s ease, color 0.2s ease; }
+    .lang-switch button.active { background: linear-gradient(135deg, var(--olive-deep) 0%, var(--olive) 60%, var(--gold) 100%); color: #fff; }
+    .menu-btn { display: none; width: 42px; height: 42px; border: 0; background: transparent; font-size: 24px; color: var(--ink); border-radius: 12px; }
+    main { padding-top: 72px; }
+    .wrap { max-width: 1180px; margin: auto; padding-left: 24px; padding-right: 24px; }
+    .hero { position: relative; overflow: hidden; min-height: calc(100vh - 72px); display: grid; place-items: center; padding: 88px 0 56px;
+      background: radial-gradient(circle at 15% 15%, rgba(85, 107, 47, 0.12), transparent 26%), radial-gradient(circle at 75% 20%, rgba(107, 142, 31, 0.10), transparent 26%), linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,251,248,0.96)); }
+    .hero::before { content: ""; position: absolute; inset: 12% auto auto 50%; width: 820px; height: 820px; background: radial-gradient(circle, rgba(107, 142, 31, 0.14), transparent 60%); transform: translateX(-50%); pointer-events: none; }
+    .hero::after { content: ""; position: absolute; width: 620px; height: 620px; right: -180px; top: 80px; background: radial-gradient(circle, rgba(107, 142, 31, 0.12), transparent 62%); pointer-events: none; }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 70px; }
+    .eyebrow { margin: 0 0 14px; font-size: 17px; font-weight: 700; letter-spacing: 0.04em; color: var(--gold); }
+    .hero h1 { margin: 0; max-width: 700px; font-size: clamp(54px, 6.6vw, 90px); line-height: 0.98; letter-spacing: -0.03em; }
+    .gradient { background: linear-gradient(99deg, #1a1a1a 8%, var(--olive) 52%, var(--gold) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; padding: 0 0.06em 0.08em 0; }
+    .hero-copy { margin: 22px 0 30px; max-width: 640px; color: var(--muted); font-size: clamp(19px, 1.9vw, 25px); line-height: 1.4; letter-spacing: 0; }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .trust { display: flex; align-items: center; gap: 14px; margin-top: 32px; color: var(--muted); font-size: 14px; }
+    .avatars { display: flex; }
+    .avatar { width: 38px; height: 38px; margin-left: -8px; border: 3px solid #fff; border-radius: 50%; display: grid; place-items: center; color: #fff; font-size: 11px; font-weight: 700; background: linear-gradient(135deg, var(--olive-deep) 0%, var(--olive) 70%, var(--gold) 100%); }
+    .avatar:first-child { margin-left: 0; }
+    .stars { color: var(--gold); letter-spacing: 1px; }
+    .product-card { position: relative; z-index: 1; background: rgba(255,255,255,0.72); border: 1px solid rgba(255,255,255,0.9); border-radius: 40px; padding: 18px; box-shadow: var(--shadow); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); transform: rotate(1.4deg); }
+    .product-card::before { content: ""; position: absolute; inset: -12px auto auto -12px; width: 120px; height: 120px; border-radius: 50%; background: rgba(85, 107, 47, 0.14); filter: blur(22px); }
+    .product-image { position: relative; height: 350px; border-radius: 28px; background: linear-gradient(135deg, #FAFBF8 0%, #E8F0D5 38%, #DCEAB0 100%); display: grid; place-items: center; overflow: hidden; border: 1px solid rgba(38, 48, 28, 0.08); }
+    .product-image::before { content: ""; position: absolute; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0) 62%); top: 14%; left: 18%; }
+    .drill { position: relative; z-index: 1; filter: drop-shadow(0 28px 30px rgba(0,0,0,0.18)); transform: rotate(-8deg); }
+    .distance { position: absolute; left: 18px; top: 18px; z-index: 2; display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.78); border: 1px solid rgba(38,48,28,0.10); padding: 9px 13px; border-radius: 999px; font-size: 12px; font-weight: 600; box-shadow: 0 10px 20px rgba(38, 48, 28, 0.10); }
+    .distance::before { content: ""; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 0 4px rgba(34,197,94,0.12); }
+    .mini-pills { position: absolute; right: 16px; bottom: 16px; z-index: 2; display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+    .mini-pills span { background: rgba(255,255,255,0.82); border: 1px solid rgba(38,48,28,0.10); border-radius: 999px; padding: 7px 10px; font-size: 11px; font-weight: 700; color: var(--olive-deep); }
+    .card-info { padding: 20px 4px 4px; }
+    .card-title-row { display: flex; justify-content: space-between; gap: 18px; align-items: flex-start; }
+    .card-info h3 { margin: 0 0 7px; font-size: 22px; letter-spacing: -0.02em; }
+    .card-info p { margin: 0; color: var(--muted); line-height: 1.45; }
+    .price { white-space: nowrap; font-weight: 700; font-size: 20px; letter-spacing: -0.02em; }
+    .price small { font-size: 13px; color: var(--muted); }
+    .meta { display: flex; gap: 10px; justify-content: space-between; align-items: center; margin-top: 18px; padding-top: 15px; border-top: 1px solid var(--line); font-size: 13px; font-weight: 600; color: var(--olive-deep); }
+    .verified { color: #1f9d55; }
+    .stats { padding: 24px 0 90px; }
+    .stat-panel { display: grid; grid-template-columns: repeat(3, 1fr); background: rgba(255,255,255,0.8); border: 1px solid rgba(38,48,28,0.08); border-radius: var(--radius-xl); padding: 28px 34px; box-shadow: 0 18px 40px rgba(38,48,28,0.06); }
+    .stat { text-align: center; padding: 10px 20px; border-right: 1px solid rgba(38,48,28,0.12); }
+    .stat:last-child { border-right: 0; }
+    .stat strong { display: block; font-size: 40px; line-height: 1; letter-spacing: -0.04em; margin-bottom: 8px; color: var(--olive-deep); }
+    .stat span { color: var(--muted); }
+    section { padding: 100px 0; }
+    .section-top { max-width: 860px; margin: 0 auto 56px; text-align: center; }
+    .kicker { margin: 0 0 12px; color: var(--gold); font-size: 16px; font-weight: 700; letter-spacing: 0.02em; }
+    .section-top h2 { margin: 0; font-size: clamp(40px, 4.8vw, 66px); line-height: 1.04; letter-spacing: -0.02em; }
+    .section-top p { max-width: 720px; margin: 20px auto 0; color: var(--muted); font-size: 20px; line-height: 1.5; }
+    .feature-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 20px; }
+    .feature { position: relative; overflow: hidden; min-height: 430px; padding: 46px; border-radius: var(--radius-xl); background: rgba(255,255,255,0.8); border: 1px solid rgba(38,48,28,0.08); box-shadow: 0 18px 40px rgba(38,48,28,0.06); }
+    .feature.dark { background: linear-gradient(145deg, var(--olive-deep) 0%, var(--olive) 60%, #7ea62b 100%); color: #fff; }
+    .feature.wide { grid-column: 1 / -1; min-height: 390px; display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
+    .feature h3 { margin: 14px 0; font-size: 33px; line-height: 1.08; letter-spacing: -0.02em; }
+    .feature p { max-width: 500px; margin: 0 0 18px; color: var(--muted); font-size: 18px; line-height: 1.55; }
+    .dark p { color: rgba(255,255,255,0.86); }
+    .learn { color: var(--gold); font-weight: 700; }
+    .feature.dark .learn { color: #F3D98A; }
+    .feature-orb { position: absolute; right: -50px; bottom: -60px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #E8F0D5 0%, var(--olive) 46%, var(--olive-deep) 72%); box-shadow: -30px -20px 75px rgba(85, 107, 47, 0.28); }
+    .shield { font-size: 145px; text-align: center; filter: drop-shadow(0 30px 25px rgba(0,0,0,0.28)); }
+    .coins { font-size: 140px; text-align: center; filter: drop-shadow(0 25px 20px rgba(0,0,0,0.15)); }
+    .steps-section { background: linear-gradient(180deg, var(--olive-deep) 0%, var(--olive) 55%, #7ea62b 100%); color: #f8faf2; }
+    .steps-section .section-top p { color: rgba(255,255,255,0.85); }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .step { min-height: 280px; padding: 28px 24px; border-radius: 26px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); }
+    .step-no { font-size: 36px; font-weight: 700; letter-spacing: 0.06em; color: #F3D98A; }
+    .step h3 { margin: 42px 0 12px; font-size: 23px; line-height: 1.18; letter-spacing: -0.02em; }
+    .step p { margin: 0; color: rgba(255,255,255,0.78); line-height: 1.6; }
+    .categories { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 14px; }
+    .category { background: rgba(255,255,255,0.8); border: 1px solid rgba(38,48,28,0.08); padding: 26px 18px; border-radius: 24px; text-align: center; transition: transform 0.22s ease, box-shadow 0.22s ease; }
+    .category:hover { transform: translateY(-5px); box-shadow: 0 22px 40px rgba(38, 48, 28, 0.12); }
+    .category-icon { margin-bottom: 16px; display: grid; place-items: center; }
+    .category strong { font-size: 17px; }
+    .contact-card { display: grid; grid-template-columns: 1fr 1fr; gap: 68px; padding: 64px; border-radius: 42px; color: #fff; background: linear-gradient(135deg, var(--olive-deep) 0%, var(--olive) 55%, var(--gold) 100%); box-shadow: var(--shadow); }
+    .contact-card h2 { margin: 0 0 16px; font-size: clamp(40px, 4.8vw, 62px); line-height: 1.0; letter-spacing: -0.02em; }
+    .contact-card p { margin: 0; color: rgba(255,255,255,0.92); font-size: 19px; line-height: 1.5; }
+    .contact-details { display: grid; gap: 8px; margin-top: 32px; font-size: 15px; color: rgba(255,255,255,0.92); }
+    .form { display: grid; gap: 12px; }
+    .field { width: 100%; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.10); color: #fff; border-radius: 16px; padding: 15px 16px; outline: none; }
+    .field::placeholder { color: rgba(255,255,255,0.7); }
+    .field option { color: #26301C; }
+    .field:focus { border-color: #F3D98A; box-shadow: 0 0 0 4px rgba(243, 217, 138, 0.28); }
+    textarea.field { min-height: 120px; resize: vertical; }
+    .form-note { margin: 4px 0 0 !important; font-size: 12px !important; color: rgba(255,255,255,0.8) !important; }
+    footer { padding: 28px 0 42px; }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; color: var(--muted); font-size: 13px; }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (max-width: 900px) {
+      .links, .nav-actions .secondary { display: none; }
+      .menu-btn { display: block; }
+      .nav.open .links { position: absolute; top: 72px; left: 0; right: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 20px; padding: 24px; background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--line); box-shadow: 0 16px 28px rgba(38,48,28,0.12); }
+      .hero-grid, .contact-card { grid-template-columns: 1fr; }
+      .hero { text-align: center; }
+      .hero-copy { margin-left: auto; margin-right: auto; }
+      .cta-row, .trust { justify-content: center; }
+      .product-card { max-width: 560px; margin: auto; transform: none; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .feature.wide { grid-column: auto; grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .categories { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .wrap { padding-left: 18px; padding-right: 18px; }
+      .hero { padding-top: 70px; }
+      .hero h1 { font-size: 48px; }
+      .product-image { height: 270px; }
+      .stat-panel { grid-template-columns: 1fr; }
+      .stat { border-right: 0; border-bottom: 1px solid rgba(38,48,28,0.12); }
+      .stat:last-child { border-bottom: 0; }
+      .feature { padding: 30px; }
+      .steps { grid-template-columns: 1fr; }
+      .categories { grid-template-columns: 1fr 1fr; }
+      .contact-card { padding: 34px 24px; }
+      .footer-row { flex-direction: column; align-items: flex-start; }
+      .nav-actions .primary { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .pill, .category { transition: none; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip" href="#main" data-en="Skip to content" data-bg="Към съдържанието">Към съдържанието</a>
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="Peer-Rent"><span class="mark" aria-hidden="true">P</span><span class="wordmark"><span class="wm-peer">Peer</span><span class="wm-rent">-Rent</span></span></a>
+    <nav class="links" aria-label="Навигация">
+      <a href="#why" data-en="Why Peer-Rent" data-bg="Защо Peer-Rent">Защо Peer-Rent</a><a href="#how" data-en="How it works" data-bg="Как работи">Как работи</a><a href="#categories" data-en="Categories" data-bg="Категории">Категории</a><a href="#contact" data-en="Contact" data-bg="Контакт">Контакт</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-switch" role="group" aria-label="Език / Language">
+        <button type="button" data-lang="bg" class="active" aria-label="Български">BG</button>
+        <button type="button" data-lang="en" aria-label="English">EN</button>
+      </div>
+      <a class="pill secondary" href="#categories" data-en="Explore" data-bg="Разгледай">Разгледай</a><a class="pill primary" href="#contact" data-en="List an item ↗" data-bg="Публикувай артикул ↗">Публикувай артикул ↗</a><button class="menu-btn" aria-label="Меню" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div class="reveal in">
+        <p class="eyebrow" data-en="Rent directly from people, for people." data-bg="Наеми директно от хора, за хора.">Наеми директно от хора, за хора.</p>
+        <h1><span data-en="Own less." data-bg="Притежавай по-малко.">Притежавай по-малко.</span><br><span class="gradient" data-en="Access more." data-bg="Достъп до повече.">Достъп до повече.</span></h1>
+        <p class="hero-copy" data-en="Rent tools, tech, outdoor gear, and everyday items from trusted people. Or earn by renting out the items you already own." data-bg="Наемай инструменти, техника, оборудване за навън и ежедневни артикули от хора, на които можеш да се довериш. Или печели, като отдаваш под наем артикулите, които вече притежаваш.">Наемай инструменти, техника, оборудване за навън и ежедневни артикули от хора, на които можеш да се довериш. Или печели, като отдаваш под наем артикулите, които вече притежаваш.</p>
+        <div class="cta-row"><a class="pill primary" href="#categories" data-en="Find what you need →" data-bg="Намери каквото ти трябва →">Намери каквото ти трябва →</a><a class="pill secondary" href="#contact" data-en="Start earning" data-bg="Започни да печелиш">Започни да печелиш</a></div>
+        <div class="trust"><div class="avatars" aria-hidden="true"><span class="avatar">AM</span><span class="avatar">JT</span><span class="avatar">LK</span></div><div><span class="stars" aria-hidden="true">★★★★★</span><br><span data-en="Trusted by people in growing communities" data-bg="С доверие от хора в растящи общности">С доверие от хора в растящи общности</span></div></div>
+      </div>
+      <article class="product-card reveal in" aria-label="Избрана обява">
+        <div class="product-image">
+          <span class="distance" data-en="1.2 km away" data-bg="на 1.2 км">на 1.2 км</span>
+          <span class="drill" aria-hidden="true"><svg width="120" height="120" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="15" y="25" width="50" height="30" rx="4" stroke="#556B2F" stroke-width="3"></rect><circle cx="35" cy="40" r="5" fill="#DAA520"></circle><rect x="50" y="35" width="15" height="10" rx="2" stroke="#556B2F" stroke-width="2.5"></rect></svg></span>
+          <div class="mini-pills"><span data-en="100% battery" data-bg="100% батерия">100% батерия</span><span data-en="Rent today" data-bg="Наемане днес">Наемане днес</span></div>
+        </div>
+        <div class="card-info">
+          <div class="card-title-row">
+            <div>
+              <h3 data-en="Cordless power drill" data-bg="Безжична бормашина">Безжична бормашина</h3>
+              <p data-en="Reliable, fully charged, with drill-bit set." data-bg="Надеждна, напълно заредена, с комплект накрайници.">Надеждна, напълно заредена, с комплект накрайници.</p>
+            </div>
+            <div class="price">€9 <small data-en="/ day" data-bg="/ ден">/ ден</small></div>
+          </div>
+          <div class="meta"><span class="verified" data-en="✓ Verified owner" data-bg="✓ Проверен собственик">✓ Проверен собственик</span><span data-en="★ 4.9 rating" data-bg="★ 4.9 оценка">★ 4.9 оценка</span><span data-en="Available today" data-bg="Налична днес">Налична днес</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <div class="stats wrap reveal"><div class="stat-panel"><div class="stat"><strong>10K+</strong><span data-en="items available" data-bg="налични артикула">налични артикула</span></div><div class="stat"><strong>5K+</strong><span data-en="active members" data-bg="активни членове">активни членове</span></div><div class="stat"><strong>98%</strong><span data-en="positive experiences" data-bg="положителни изживявания">положителни изживявания</span></div></div></div>
+
+  <section id="why"><div class="wrap"><div class="section-top reveal"><div class="kicker" data-en="Built for sharing" data-bg="Създадено за споделяне">Създадено за споделяне</div><h2 data-en="Connect. Share. Reuse." data-bg="Свържи се. Сподели. Използвай отново.">Свържи се. Сподели. Използвай отново.</h2><p data-en="Everything you need to rent and lend confidently, with clear profiles, simple booking, and community reviews." data-bg="Всичко необходимо, за да наемаш и отдаваш с увереност — с ясни профили, лесно резервиране и отзиви от общността.">Всичко необходимо, за да наемаш и отдаваш с увереност — с ясни профили, лесно резервиране и отзиви от общността.</p></div>
+    <div class="feature-grid">
+      <article class="feature reveal"><div class="kicker" data-en="Discover" data-bg="Открий">Открий</div><h3 data-en="Get what you need, now." data-bg="Намери каквото ти трябва, сега.">Намери каквото ти трябва, сега.</h3><p data-en="Discover quality items to rent instead of buying something you may only need once." data-bg="Открий качествени артикули за наемане, вместо да купуваш нещо, което може да ти трябва само веднъж.">Открий качествени артикули за наемане, вместо да купуваш нещо, което може да ти трябва само веднъж.</p><a class="learn" href="#categories" data-en="Browse categories →" data-bg="Разгледай категориите →">Разгледай категориите →</a><div class="feature-orb" aria-hidden="true"></div></article>
+      <article class="feature dark reveal"><div class="kicker" data-en="Peace of mind" data-bg="Спокойствие">Спокойствие</div><h3 data-en="Reliability." data-bg="Надеждност.">Надеждност.</h3><p data-en="Verified profiles, transparent reviews, secure rental payments, and clear booking details." data-bg="Проверени профили, прозрачни отзиви, сигурни плащания за наем и ясни детайли по резервацията.">Проверени профили, прозрачни отзиви, сигурни плащания за наем и ясни детайли по резервацията.</p><a class="learn" href="#how" data-en="See how it works →" data-bg="Виж как работи →">Виж как работи →</a><div class="shield" aria-hidden="true"><svg width="160" height="160" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M60 15L85 30V55C85 75 60 100 60 100C60 100 35 75 35 55V30L60 15Z" stroke="#F3D98A" stroke-width="3" stroke-linejoin="round"></path><path d="M50 60L57 67L75 45" stroke="#F3D98A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></article>
+      <article class="feature wide reveal"><div><div class="kicker" data-en="Earn locally" data-bg="Печели локално">Печели локално</div><h3 data-en="Start renting out your items." data-bg="Започни да отдаваш артикулите си.">Започни да отдаваш артикулите си.</h3><p data-en="List your items, set your rental price and availability, then earn when renters rent through your listing." data-bg="Публикувай артикулите си, задай цена за наем и наличност, след което печели, когато наематели наемат по обявата ти.">Публикувай артикулите си, задай цена за наем и наличност, след което печели, когато наематели наемат по обявата ти.</p><a class="learn" href="#contact" data-en="List an item →" data-bg="Публикувай артикул →">Публикувай артикул →</a></div><div class="coins" aria-hidden="true"><svg width="160" height="160" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="45" r="20" stroke="#556B2F" stroke-width="2.5"></circle><text x="40" y="53" text-anchor="middle" font-size="22" font-weight="bold" fill="#556B2F">€</text><circle cx="70" cy="60" r="22" stroke="#556B2F" stroke-width="2.5" opacity="0.7"></circle><text x="70" y="69" text-anchor="middle" font-size="24" font-weight="bold" fill="#556B2F" opacity="0.7">€</text><circle cx="55" cy="75" r="18" stroke="#556B2F" stroke-width="2.5" opacity="0.5"></circle><text x="55" y="82" text-anchor="middle" font-size="18" font-weight="bold" fill="#556B2F" opacity="0.5">€</text></svg></div></article>
+    </div>
+  </div></section>
+
+  <section class="steps-section" id="how"><div class="wrap"><div class="section-top reveal"><div class="kicker" data-en="How it works" data-bg="Как работи">Как работи</div><h2 data-en="From search to rental in four easy steps." data-bg="От търсене до наемане в четири лесни стъпки.">От търсене до наемане в четири лесни стъпки.</h2><p data-en="Transparency for both renters and owners, with fewer messages and no confusing process." data-bg="Прозрачност за наематели и собственици, с по-малко съобщения и без объркващ процес.">Прозрачност за наематели и собственици, с по-малко съобщения и без объркващ процес.</p></div>
+    <div class="steps"><article class="step reveal"><div class="step-no">01</div><h3 data-en="Create your profile" data-bg="Създай своя профил">Създай своя профил</h3><p data-en="Join the community, add basic details, and complete verification to build trust." data-bg="Присъедини се към общността, добави основни детайли и завърши верификацията, за да изградиш доверие.">Присъедини се към общността, добави основни детайли и завърши верификацията, за да изградиш доверие.</p></article><article class="step reveal"><div class="step-no">02</div><h3 data-en="Browse or list" data-bg="Разгледай или публикувай">Разгледай или публикувай</h3><p data-en="Search by location and availability, or create a listing with photos, price, and rental details." data-bg="Търси по локация и наличност или създай обява със снимки, цена и детайли за наемане.">Търси по локация и наличност или създай обява със снимки, цена и детайли за наемане.</p></article><article class="step reveal"><div class="step-no">03</div><h3 data-en="Book securely" data-bg="Резервирай сигурно">Резервирай сигурно</h3><p data-en="Choose your dates, send a request, and keep payment and communication in one place." data-bg="Избери дати, изпрати заявка и управлявай плащането и комуникацията на едно място.">Избери дати, изпрати заявка и управлявай плащането и комуникацията на едно място.</p></article><article class="step reveal"><div class="step-no">04</div><h3 data-en="Rent and review" data-bg="Наеми и оцени">Наеми и оцени</h3><p data-en="Connect, use the item, return it on time, and help the community with an honest review." data-bg="Свържи се, използвай артикула, върни го навреме и помогни на общността с честна оценка.">Свържи се, използвай артикула, върни го навреме и помогни на общността с честна оценка.</p></article></div>
+  </div></section>
+
+  <section id="categories"><div class="wrap"><div class="section-top reveal"><div class="kicker" data-en="Something for every plan" data-bg="Нещо за всеки план">Нещо за всеки план</div><h2 data-en="Why buy it when someone already has it?" data-bg="Защо да го купуваш, щом някой вече го има?">Защо да го купуваш, щом някой вече го има?</h2><p data-en="From weekend projects to spontaneous adventures, access quality items without the cost and clutter of ownership." data-bg="От уикенд проекти до спонтанни приключения — достъп до качествени артикули без разходите и претрупването от притежаването.">От уикенд проекти до спонтанни приключения — достъп до качествени артикули без разходите и претрупването от притежаването.</p></div>
+    <div class="categories reveal"><a class="category" href="#contact" aria-label="Инструменти"><div class="category-icon"><svg width="75" height="75" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M31 8a8 8 0 0 0-7.6 10.5L9.3 32.6a3.3 3.3 0 0 0 4.6 4.6l14.1-14.1A8 8 0 0 0 39 15.5l-5.2 5.2-3.6-.9-.9-3.6 5.2-5.2A8 8 0 0 0 31 8Z" stroke="#556B2F" stroke-width="2.5" stroke-linejoin="round"></path><circle cx="12.5" cy="34" r="1.7" fill="#DAA520"></circle></svg></div><strong data-en="Tools" data-bg="Инструменти">Инструменти</strong></a><a class="category" href="#contact" aria-label="На открито"><div class="category-icon"><svg width="75" height="75" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="14" r="4" fill="#DAA520"></circle><path d="M5 41L19 20l7.5 11 4.5-6.5L45 41Z" stroke="#556B2F" stroke-width="2.5" stroke-linejoin="round"></path></svg></div><strong data-en="Outdoors" data-bg="На открито">На открито</strong></a><a class="category" href="#contact" aria-label="Техника"><div class="category-icon"><svg width="75" height="75" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="12" y="11" width="26" height="18" rx="2" stroke="#556B2F" stroke-width="2.5"></rect><path d="M6 34h38l-2.6 4.6H8.6z" stroke="#556B2F" stroke-width="2.5" stroke-linejoin="round"></path><circle cx="25" cy="20" r="3.2" fill="#DAA520"></circle></svg></div><strong data-en="Tech" data-bg="Техника">Техника</strong></a><a class="category" href="#contact" aria-label="Събития"><div class="category-icon"><svg width="75" height="75" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 17h32v6a3 3 0 0 0 0 6v6H9v-6a3 3 0 0 0 0-6z" stroke="#556B2F" stroke-width="2.5" stroke-linejoin="round"></path><line x1="30" y1="17" x2="30" y2="41" stroke="#DAA520" stroke-width="2.5" stroke-dasharray="3 3"></line></svg></div><strong data-en="Events" data-bg="Събития">Събития</strong></a><a class="category" href="#contact" aria-label="Спорт"><div class="category-icon"><svg width="75" height="75" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="7" y="20" width="6" height="10" rx="1.5" stroke="#556B2F" stroke-width="2.5"></rect><rect x="37" y="20" width="6" height="10" rx="1.5" stroke="#556B2F" stroke-width="2.5"></rect><line x1="13" y1="25" x2="37" y2="25" stroke="#556B2F" stroke-width="2.5"></line><line x1="16" y1="25" x2="34" y2="25" stroke="#DAA520" stroke-width="4"></line></svg></div><strong data-en="Sport" data-bg="Спорт">Спорт</strong></a></div>
+  </div></section>
+
+  <section id="contact"><div class="wrap"><div class="contact-card reveal"><div><div class="kicker" data-en="Ready to get started?" data-bg="Готов да започнеш?">Готов да започнеш?</div><h2 data-en="Benefit from our community." data-bg="Възползвай се от нашата общност.">Възползвай се от нашата общност.</h2><p data-en="Join Peer-Rent to get what you need or start earning from the items you already own." data-bg="Присъедини се към Peer-Rent, за да получиш каквото ти трябва или да започнеш да печелиш от артикулите, които вече притежаваш.">Присъедини се към Peer-Rent, за да получиш каквото ти трябва или да започнеш да печелиш от артикулите, които вече притежаваш.</p><div class="contact-details"><strong>hello@peerrent.com</strong></div></div>
+    <form class="form" onsubmit="event.preventDefault();this.querySelector('button').textContent=(document.documentElement.lang==='en'?'Message ready ✓':'Съобщението е готово ✓');"><input class="field" aria-label="Име" placeholder="Име" data-en-ph="Name" data-bg-ph="Име" required=""><input class="field" type="email" aria-label="Имейл" placeholder="Имейл" data-en-ph="Email" data-bg-ph="Имейл" required=""><select class="field" aria-label="Искам да"><option data-en="I want to rent an item" data-bg="Искам да наема артикул">Искам да наема артикул</option><option data-en="I want to list an item" data-bg="Искам да публикувам артикул">Искам да публикувам артикул</option><option data-en="I have a general question" data-bg="Имам общ въпрос">Имам общ въпрос</option></select><textarea class="field" aria-label="Съобщение" placeholder="Съобщение" data-en-ph="Message" data-bg-ph="Съобщение" required=""></textarea><button class="pill primary" type="submit" data-en="Send message →" data-bg="Изпрати съобщение →">Изпрати съобщение →</button><p class="form-note" data-en="Demo form only. Connect this form to your preferred email or form service before launch." data-bg="Само демо форма. Свържи тази форма с предпочитан имейл или услуга за форми преди старт.">Само демо форма. Свържи тази форма с предпочитан имейл или услуга за форми преди старт.</p></form>
+  </div></div></section>
+</main>
+<footer><div class="wrap footer-row"><a class="brand" href="#top" aria-label="Peer-Rent"><span class="mark" aria-hidden="true">P</span><span class="wordmark"><span class="wm-peer">Peer</span><span class="wm-rent">-Rent</span></span></a><span data-en="© 2026 Peer-Rent. Own less. Access more." data-bg="© 2026 Peer-Rent. Притежавай по-малко. Достъп до повече.">© 2026 Peer-Rent. Притежавай по-малко. Достъп до повече.</span></div></footer>
+<script>
+  const nav=document.getElementById('nav');
+  const menu=document.querySelector('.menu-btn');
+  menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open);menu.textContent=open?'×':'☰'});
+  document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰'}));
+  const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');observer.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+  /* ---------- Двуезичен (BG / EN) превключвател ---------- */
+  const titles = {
+    bg: "Peer-Rent | Споделяй повече. Притежавай по-малко.",
+    en: "Peer-Rent | Share more. Own less."
+  };
+  function setLang(lang){
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-'+lang+']').forEach(el=>{
+      const val = el.getAttribute('data-'+lang);
+      if(val!==null) el.textContent = val;
+    });
+    document.querySelectorAll('[data-'+lang+'-ph]').forEach(el=>{
+      el.setAttribute('placeholder', el.getAttribute('data-'+lang+'-ph'));
+    });
+    if(titles[lang]) document.title = titles[lang];
+    document.querySelectorAll('.lang-switch button').forEach(b=>{
+      b.classList.toggle('active', b.getAttribute('data-lang')===lang);
+    });
+    try { localStorage.setItem('peerrent-lang', lang); } catch(e){}
+  }
+  document.querySelectorAll('.lang-switch button').forEach(btn=>{
+    btn.addEventListener('click',()=>setLang(btn.getAttribute('data-lang')));
+  });
+  let saved = null;
+  try { saved = localStorage.getItem('peerrent-lang'); } catch(e){}
+  const initial = saved || ((navigator.language||'').toLowerCase().startsWith('en') ? 'en' : 'bg');
+  setLang(initial);
+</script>
+</body>
+</html>
